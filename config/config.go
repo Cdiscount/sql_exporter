@@ -458,9 +458,9 @@ func (m *MetricConfig) UnmarshalYAML(unmarshal func(interface{}) error) error {
 
 // QueryConfig defines a named query, to be referenced by one or multiple metrics.
 type QueryConfig struct {
-	Name  string `yaml:"query_name"` // the query name, to be referenced via `query_ref`
-	Query string `yaml:"query"`      // the named query
-	SingleRow bool  `yaml:"single_row"`
+	Name      string `yaml:"query_name"` // the query name, to be referenced via `query_ref`
+	Query     string `yaml:"query"`      // the named query
+	SingleRow bool   `yaml:"single_row"`
 
 	metrics []*MetricConfig // metrics referencing this query
 
