@@ -100,6 +100,9 @@ func (q *Query) Collect(ctx context.Context, conn *sql.DB, ch chan<- Metric) {
 		for _, mf := range q.metricFamilies {
 			mf.Collect(row, ch)
 		}
+		if q.config.SingleRow {
+			break
+		}
 	}
 	if err1 := rows.Err(); err1 != nil {
 		ch <- NewInvalidMetric(errors.Wrap(q.logContext, err1))
